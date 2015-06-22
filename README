@@ -18,6 +18,7 @@ Release notes:
 
   2.1      : * the spacing inside cases can be contolled with \cutcasebarskip
              * corrected a bug where vertical bars would shrink horizontally
+             * corrected the spacing of middle delimiters
   2.0 11/14: * The package now offers general-purpose commands for
                defining arbitrary nested delimiters that consistently
                grow regardless of the contents (\perfectunary and

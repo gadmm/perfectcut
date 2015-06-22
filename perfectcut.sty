@@ -130,17 +130,17 @@
 %% used in order to have vertical bars of the perfect size
 \newcommand{\cut@matchingldelim}[2]{\mathopen{\cut@resizetoheightof{#1}{\cut@nextldelim{#2}{#1}}}}
 \newcommand{\cut@matchingrdelim}[2]{\mathclose{\cut@resizetoheightof{#1}{\cut@nextrdelim{#2}{#1}}}}
-\newcommand{\cut@matchingmdelim}[2]{\mathrel{\cut@resizetoheightof{#1}{\cut@nextmdelim{#2}{#1}}}}
+\newcommand{\cut@matchingmdelim}[2]{\mathord{\cut@resizetoheightof{#1}{\cut@nextmdelim{#2}{#1}}}}
 
 %% gives the delimiter #2 which is immediately longer than #1 (length)
 \newcommand{\cut@lengthldelim}[2]{\mathopen{\cut@setshortfall{\cut@nextldelim#2{\rule[-0.101pt]{0pt}{#1}}}}}
 \newcommand{\cut@lengthrdelim}[2]{\mathclose{\cut@setshortfall{\cut@nextrdelim#2{\rule[-0.101pt]{0pt}{#1}}}}}
-\newcommand{\cut@lengthmdelim}[2]{\mathrel{\cut@setshortfall{\cut@nextmdelim#2{\rule[-0.101pt]{0pt}{#1}}}}}
+\newcommand{\cut@lengthmdelim}[2]{\mathord{\cut@setshortfall{\cut@nextmdelim#2{\rule[-0.101pt]{0pt}{#1}}}}}
 
 %% like the previous one but resized to exactly match #1 (length) 
 \newcommand{\cut@reallengthldelim}[2]{\mathopen{\cut@resizetoheight{#1}{\cut@nextldelim#2{\rule[-0.101pt]{0pt}{#1}}}}}
 \newcommand{\cut@reallengthrdelim}[2]{\mathclose{\cut@resizetoheight{#1}{\cut@nextrdelim#2{\rule[-0.101pt]{0pt}{#1}}}}}
-\newcommand{\cut@reallengthmdelim}[2]{\mathrel{\cut@resizetoheight{#1}{\cut@nextmdelim#2{\rule[-0.101pt]{0pt}{#1}}}}}
+\newcommand{\cut@reallengthmdelim}[2]{\mathord{\cut@resizetoheight{#1}{\cut@nextmdelim#2{\rule[-0.101pt]{0pt}{#1}}}}}
 
 %I don't get anything about this bug which affects the
 %alignment with respect to the math axis
