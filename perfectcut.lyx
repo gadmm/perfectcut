@@ -1,0 +1,2623 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass scrartcl
+\begin_preamble
+\usepackage{perfectcut}
+%% NewTXtext with a bugfix
+%\let\orig@makefnmark=\@makefnmark%
+%\usepackage{newtxtext}
+%\let\@makefnmark=\orig@makefnmark
+%%End of bugfix
+
+%\usepackage[T1]{fontenc}
+
+%\usepackage{newtxmath}
+\usepackage{stix}
+\renewcommand*\ttdefault{txtt}
+\usepackage[oldstyle,lining,scale=0.97]{sourcesanspro}
+\usepackage[protrusion=true,expansion=true,tracking=false,kerning=true,spacing=true]{microtype}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language british
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry false
+\use_package amsmath 2
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 0
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 1
+\tocdepth 1
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\cut}[2]{\perfectcut{#1}{#2}}
+{\left\langle #1\Vert#2\right\rangle }
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\mt}{\bar{\mu}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+
+\family typewriter
+perfectcut.sty
+\family default
+ documentation
+\end_layout
+
+\begin_layout Author
+\noindent
+
+\size large
+Guillaume Munch-Maccagnoni
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+target "http://www.pps.univ-paris-diderot.fr/~munch/"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Date
+2nd November 2014
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+\boxed{\delta(t,x.u,y.v)=\mu{\star}.\cut t{\perfectcase{\mt x.\cut u{\star}}{\mt y.\cut v{\star}}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Use
+\end_layout
+
+\begin_layout Paragraph
+Original use
+\end_layout
+
+\begin_layout Standard
+This package supplies the following commands:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features rotate="0" booktabs="true" tabularvalignment="middle">
+<column alignment="left" valignment="top" width="0pt">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Command
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Produces
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+perfectcut{#1}{#2}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\perfectcut{\#1}{\#2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+perfectbra{#1}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\perfectbra{\#1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+perfectket{#1}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\perfectket{\#1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features rotate="0" booktabs="true" tabularvalignment="middle">
+<column alignment="left" valignment="top" width="0pt">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Command
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Produces
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+perfectcase{#1}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\perfectcase{\#1}{\#2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+perfectbrackets{#1}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\perfectbrackets{\#1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+perfectparens{#1}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\perfectparens{\#1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The effect of these commands is to let the delimiters grow according to
+ the number of nested 
+\family typewriter
+
+\backslash
+perfect
+\emph on
+command
+\family default
+\emph default
+s (regardless of the size of contents).
+ The package is originally intended for solving a notational issue regarding
+ the representation of abstract-machine-like calculi in proof theory and
+ computer science.
+\end_layout
+
+\begin_layout Paragraph
+General use
+\end_layout
+
+\begin_layout Standard
+The package also defines 
+\family typewriter
+
+\backslash
+perfectunary
+\family default
+ and 
+\family typewriter
+
+\backslash
+perfectbinary
+\family default
+ for defining custom delimiters that behave similarly to the above ones.
+ These commands should be considered when facing the need of nested delimiters
+ that consistently grow regardless of the contents.
+ (See 
+\begin_inset Quotes eld
+\end_inset
+
+Advanced Use
+\begin_inset Quotes erd
+\end_inset
+
+.)
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If the package causes incompatibility errors, refer to the option 
+\family typewriter
+nomathstyle
+\family default
+ below.
+\end_layout
+
+\begin_layout Section
+Example
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\noindent
+
+\family typewriter
+\size footnotesize
+The following states the commutativity of a strong monad:
+\begin_inset Newline newline
+\end_inset
+
+
+\backslash
+def
+\backslash
+mt{
+\backslash
+tilde{
+\backslash
+mu}}
+\begin_inset Newline newline
+\end_inset
+
+
+\backslash
+[
+\begin_inset Newline newline
+\end_inset
+
+
+\backslash
+cut t{
+\backslash
+mt x.
+\backslash
+cut u{
+\backslash
+mt y.
+\backslash
+cut ve}}
+\begin_inset Newline newline
+\end_inset
+
+=
+\backslash
+cut u{
+\backslash
+mt y.
+\backslash
+cut t{
+\backslash
+mt x.
+\backslash
+cut ve}}
+\begin_inset Newline newline
+\end_inset
+
+
+\backslash
+]
+\begin_inset Newline newline
+\end_inset
+
+The following states the idempotency of an adjunction: 
+\begin_inset Newline newline
+\end_inset
+
+
+\backslash
+[
+\begin_inset Newline newline
+\end_inset
+
+
+\backslash
+cut t{
+\backslash
+mt x.
+\backslash
+cut{
+\backslash
+mu
+\backslash
+alpha.
+\backslash
+cut ue}{e'}}
+\begin_inset Newline newline
+\end_inset
+
+=
+\backslash
+cut{
+\backslash
+mu
+\backslash
+alpha.
+\backslash
+cut t{
+\backslash
+mt x.
+\backslash
+cut ue}}{e'}
+\begin_inset Newline newline
+\end_inset
+
+
+\backslash
+]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Using 
+\family typewriter
+perfectcut.sty
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\cut}[2]{\cutprimitive{#1}{#2}}
+{\left\langle #1\Vert#2\right\rangle }
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\family typewriter
+\size footnotesize
+
+\backslash
+usepackage{perfectcut}
+\begin_inset Newline newline
+\end_inset
+
+
+\backslash
+let
+\backslash
+cut
+\backslash
+perfectcut
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+The following states the idempotency of an adjunction: 
+\begin_inset Formula 
+\[
+\cut t{\mt x.\cut{\mu\alpha.\cut ue}{e'}}=\cut{\mu\alpha.\cut t{\mt x.\cut ue}}{e'}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+The following states the commutativity of a strong monad:
+\begin_inset Formula 
+\[
+\cut t{\mt x.\cut u{\mt y.\cut ve}}=\cut u{\mt y.\cut t{\mt x.\cut ve}}
+\]
+
+\end_inset
+
+Using 
+\family typewriter
+
+\backslash
+underline
+\family default
+ to mark redexes:
+\begin_inset Formula 
+\begin{align*}
+ & \delta(V,x.y,x.y)\\
+ & =\mu{\star}.\cut V{\perfectcase{\mt x.\underline{\cut y{\star}}}{\mt x.\underline{\cut y{\star}}}}\\
+ & =\mu{\star}.\cut V{\underline{\perfectcase{\mt x.\cut{\iota_{1}(x)}{\mt z.\cut y{\star}}}{\mt x.\cut{\iota_{2}(x)}{\mt z.\cut y{\star}}}}}\\
+ & =\mu{\star}.\cut V{\underline{\mt z.}\cut y{\star}}\\
+ & =\mu{\star}.\cut y{\star}=y
+\end{align*}
+
+\end_inset
+
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+\begin{aligned}\cut{\mu q'.\cut{\underline{V}}{\mt q.c}}e & =\cut V{\underline{\mt x.\cut{\mu q'.\cut x{\mt q.c}}e}}\\
+ & =\cut V{\mt q.\cut q{\underline{\mt x.}\cut{\mu q'.\cut x{\mt q.c}}e}}\\
+ & =\cut V{\mt q.\cut{\mu q'.c}e}
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Using 
+\family typewriter
+
+\backslash
+left
+\family default
+, 
+\family typewriter
+
+\backslash
+middle
+\family default
+ and 
+\family typewriter
+
+\backslash
+right
+\family default
+ instead
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\fakecut}[2]{\left\langle #1\middle|\mkern-2mu\middle|#2\right\rangle }
+{\left\langle #1||#2\right\rangle }
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\family typewriter
+\size footnotesize
+
+\backslash
+renewcommand{
+\backslash
+cut}[2]{
+\backslash
+left
+\backslash
+langle #1
+\backslash
+middle|
+\backslash
+mkern-2mu
+\backslash
+middle|#2
+\backslash
+right
+\backslash
+rangle}
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+The following states the idempotency of an adjunction: 
+\begin_inset Formula 
+\[
+\fakecut t{\mt x.\fakecut{\mu\alpha.\fakecut ue}{e'}}=\fakecut{\mu\alpha.\fakecut t{\mt x.\fakecut ue}}{e'}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+The following states the commutativity of a strong monad:
+\begin_inset Formula 
+\[
+\fakecut t{\mt x.\fakecut u{\mt y.\fakecut ve}}=\fakecut u{\mt y.\fakecut t{\mt x.\fakecut ve}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Using 
+\family typewriter
+
+\backslash
+underline
+\family default
+ to mark redexes:
+\begin_inset Formula 
+\begin{align*}
+ & \delta(V,x.y,x.y)\\
+ & =\mu{\star}.\fakecut V{\left[\mt x.\underline{\fakecut y{\star}}\middle|\mt x.\underline{\fakecut y{\star}}\right]}\\
+ & =\mu{\star}.\fakecut V{\underline{\left[\mt x.\fakecut{\iota_{1}(x)}{\mt z.\fakecut y{\star}}\middle|\mt x.\fakecut{\iota_{2}(x)}{\mt z.\fakecut y{\star}}\right]}}\\
+ & =\mu{\star}.\fakecut V{\underline{\mt z.}\fakecut y{\star}}\\
+ & =\mu{\star}.\fakecut y{\star}=y
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+\begin{aligned}\fakecut{\mu q'.\fakecut{\underline{V}}{\mt q.c}}e & =\fakecut V{\underline{\mt x.\fakecut{\mu q'.\fakecut x{\mt q.c}}e}}\\
+ & =\fakecut V{\mt q.\fakecut q{\underline{\mt x.}\fakecut{\mu q'.\fakecut x{\mt q.c}}e}}\\
+ & =\fakecut V{\mt q.\fakecut{\mu q'.c}e}
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As we can see, the legibility of the above rendering is hampered by multiple
+ issues: the delimiters grow inconsistently, vertical bars have the wrong
+ size, accents or underlines uselessly make the delimiters grow, and the
+ spacing could be improved.
+ The package is designed to fix these issues.
+\end_layout
+
+\begin_layout Section
+Advanced use
+\end_layout
+
+\begin_layout Standard
+The package lets you define your own growing delimiters.
+ Let us first stress that the size of these delimiters is entirely determined
+ by the number of nestings and is insensitive to the size of the contents.
+ If you need the size of the contents to be taken into account then it is
+ probably sufficient to use 
+\family typewriter
+
+\backslash
+left
+\family default
+ and 
+\family typewriter
+
+\backslash
+right
+\family default
+ while tweaking 
+\family typewriter
+
+\backslash
+delimitershortfall
+\family default
+ and 
+\family typewriter
+
+\backslash
+delimiterfactor
+\family default
+.
+\end_layout
+
+\begin_layout Subsection
+Example
+\end_layout
+
+\begin_layout Standard
+The following displays a set 
+\begin_inset Formula $\{\#1\mid\#2\}$
+\end_inset
+
+ with delimiters appropriately sized if there are other 
+\family typewriter
+
+\backslash
+perfectcommands
+\family default
+ inside 
+\family typewriter
+#1
+\family default
+ and 
+\family typewriter
+#2
+\family default
+.
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\size footnotesize
+
+\backslash
+def
+\backslash
+Set#1#2{
+\backslash
+perfectbinary{IncreaseHeight}
+\backslash
+{|
+\backslash
+}{#1
+\backslash
+mathrel{}}{
+\backslash
+mathrel{}#2}}
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\size footnotesize
+
+\backslash
+[
+\backslash
+Set{
+\backslash
+perfectparens{a}}{
+\backslash
+perfectparens{b}}
+\backslash
+]
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+def
+\backslash
+Set#1#2{
+\backslash
+perfectbinary{IncreaseHeight}
+\backslash
+{|
+\backslash
+}{#1
+\backslash
+mathrel{}}{
+\backslash
+mathrel{}#2}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\fbox{\ensuremath{\Set{\perfectparens{a}}{\perfectparens{b}}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Custom delimiters
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+
+\backslash
+perfectunary#1#2#3#4
+\family default
+ Displays 
+\family typewriter
+#2
+\family default
+ 
+\family typewriter
+#4
+\family default
+ 
+\family typewriter
+#3
+\family default
+ where 
+\family typewriter
+#2
+\family default
+ and 
+\family typewriter
+#3
+\family default
+ are delimiters.
+ The delimiters grow according to 
+\family typewriter
+#1
+\family default
+ which must be one of 
+\family typewriter
+IncreaseHeight
+\family default
+, 
+\family typewriter
+CurrentHeight
+\family default
+, or 
+\family typewriter
+CurrentHeightPlusOne
+\family default
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+
+\backslash
+perfectbinary#1#2#3#4#5#6
+\family default
+ Displays 
+\family typewriter
+#2
+\family default
+ 
+\family typewriter
+#5
+\family default
+ 
+\family typewriter
+#3
+\family default
+ 
+\family typewriter
+#6
+\family default
+ 
+\family typewriter
+#4
+\family default
+ where 
+\family typewriter
+#2
+\family default
+, 
+\family typewriter
+#3
+\family default
+ and 
+\family typewriter
+#4
+\family default
+ are delimiters.
+ The delimiters grow according to 
+\family typewriter
+#1
+\family default
+ which must be one of 
+\family typewriter
+IncreaseHeight
+\family default
+, 
+\family typewriter
+CurrentHeight
+\family default
+, or 
+\family typewriter
+CurrentHeightPlusOne
+\family default
+.
+\end_layout
+
+\begin_layout Subsection
+Stock delimiters
+\end_layout
+
+\begin_layout Standard
+The stock commands behave as follow:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="4">
+<features rotate="0" booktabs="true" tabularvalignment="middle">
+<column alignment="left" valignment="top" width="11em">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Command
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Produces
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Growth
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Inserts skips
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+perfectcut{#1}{#2}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\perfectcut{\#1}{\#2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+IncreaseHeight
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Yes
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+perfectbra{#1}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\perfectbra{\#1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+IncreaseHeight
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Yes
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+perfectket{#1}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\perfectket{\#1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+IncreaseHeight
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Yes
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+perfectcase{#1}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\perfectcase{\#1}{\#2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+CurrentHeightPlusOne
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Yes
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+perfectbrackets{#1}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\perfectbrackets{\#1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+CurrentHeightPlusOne
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Only inside
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+perfectparens{#1}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\perfectparens{\#1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+CurrentHeight
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Only inside
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+perfectunary{#1}
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+{#2}{#3}{#4}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\#2\,\#4\,\#3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+#1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+No
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+perfectbinary{#1}
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+{#2}{#3}{#4}{#5}{#6}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\#2\,\#5\,\#3\,\#6\,\#4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+#1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+No
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Options
+\end_layout
+
+\begin_layout Subsection
+Option 
+\family typewriter
+nomathstyle
+\end_layout
+
+\begin_layout Standard
+The use of 
+\family typewriter
+
+\backslash
+currentmathstyle
+\family default
+ from the package 
+\family typewriter
+mathstyle
+\family default
+ prevents the exponential blowup in recursions that would occur if we used
+ 
+\family typewriter
+
+\backslash
+mathpalette
+\family default
+ instead.
+ To record the 
+\family typewriter
+
+\backslash
+currentmath\SpecialChar \-
+style
+\family default
+, 
+\family typewriter
+mathstyle
+\family default
+ redefines many  primitives and is therefore a source of incompatibilities.
+ If you run into such issues, please refer to the 
+\family typewriter
+mathstyle
+\family default
+ manual.
+\end_layout
+
+\begin_layout Standard
+If you want to  disable the loading of 
+\family typewriter
+mathstyle
+\family default
+, use the 
+\family typewriter
+nomathstyle
+\family default
+ option.
+  With the 
+\family typewriter
+nomathstyle
+\family default
+ option, the style is set to 
+\family typewriter
+
+\backslash
+cutstyle
+\family default
+, which you must  define by hand to be 
+\family typewriter
+
+\backslash
+displaystyle
+\family default
+, 
+\family typewriter
+
+\backslash
+textstyle 
+\family default
+(default), 
+\family typewriter
+
+\backslash
+scriptstyle
+\family default
+,  
+\family typewriter
+
+\backslash
+scriptscriptstyle
+\family default
+.
+ This means that cuts in subscripts and superscripts do  not have the proper
+ size unless 
+\family typewriter
+
+\backslash
+cutstyle 
+\family default
+is redefined.
+\end_layout
+
+\begin_layout Subsection
+Option 
+\family typewriter
+realVert
+\end_layout
+
+\begin_layout Standard
+With the option 
+\family typewriter
+realVert
+\family default
+, the double bars are obtained with the 
+\family typewriter
+
+\backslash
+Vert
+\family default
+ command.
+ But without it, two 
+\family typewriter
+
+\backslash
+vert
+\family default
+ symbols are used and their spacing is controlled with  
+\family typewriter
+
+\backslash
+cutinterbarskip
+\family default
+.
+ Also, if 
+\family typewriter
+realVert
+\family default
+ is not activated, then a penalty (
+\family typewriter
+binoppenalty
+\family default
+) is added, such that 
+\begin_inset Formula $\cut{\mu\alpha.\cut ab}{\mt x.\cut cd}$
+\end_inset
+
+ splits across lines.
+\end_layout
+
+\begin_layout Subsection
+Option 
+\family typewriter
+fixxits
+\end_layout
+
+\begin_layout Standard
+For some reason that the author was unable to identify, the vertical alignment
+ is wrong with the Opentype XITS math font with XeT
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+eX.
+ The option 
+\family typewriter
+fixxits
+\family default
+ fixes this behaviour.
+\end_layout
+
+\begin_layout Subsection
+Customisation
+\end_layout
+
+\begin_layout Standard
+The following mu-skips can be redefined in your preamble:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="2">
+<features rotate="0" booktabs="true" tabularvalignment="middle">
+<column alignment="left" valignment="top" width="0pt">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Command
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Defines the spacing...
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+cutbarskip=5.0mu plus 8mu minus 2.0mu
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+around bars
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+cutangleskip=0.0mu plus 8mu minus 1.0mu
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+around delimiters (inside)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+cutangleouterskip=0.0mu plus 8mu minus 0mu
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+around delimiters (outside)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+cutinterbarskip=0.8mu plus 0mu minus 0mu
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+between bars (excl.
+ 
+\family typewriter
+realVert
+\family default
+)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+(1 mu equals 
+\begin_inset Formula $1/18$
+\end_inset
+
+ of an em in the current math font.)
+\end_layout
+
+\begin_layout Section
+Reimplementation of fixed-size delimiters
+\end_layout
+
+\begin_layout Standard
+In addition, I provide the following corrections and generalisations of
+  
+\family typewriter
+
+\backslash
+big
+\family default
+,
+\family typewriter
+
+\backslash
+bigg
+\family default
+, etc.
+ Why not using the latter? Because both the plain 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+TeX{}
+\end_layout
+
+\end_inset
+
+ and the 
+\family typewriter
+amsmath
+\family default
+ versions can be incorrect when changing the math font, the font size, the
+ math style or 
+\family typewriter
+
+\backslash
+delimitershortfall
+\family default
+.
+ Moreover, Opentype math fonts sometimes offer more than five sizes.
+ For this package we need a robust solution.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="13" columns="3">
+<features rotate="0" booktabs="true" tabularvalignment="middle">
+<column alignment="left" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="0pt">
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Command
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Example
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+#1-th size of delimiter #2
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row bottomspace="0.1em">
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+nthleft{#1}{#2} 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+nthleft{2}(
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\nthleft{2}($
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row bottomspace="0.1em">
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+nthmiddle{#1}{#2}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+nthmiddle{2}
+\backslash
+Vert
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\nthmiddle{2}\Vert$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row bottomspace="0.1em">
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+nthright{#1}{#2}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+nthright{2})
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\nthright{2})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row bottomspace="0.1em">
+<cell multicolumn="1" alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+delimiter #2 of height at least #1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row bottomspace="0.1em">
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+lenleft{#1}{#2}
+\family default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+lenleft{3.2mm}[
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\lenleft{3mm}[$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row bottomspace="0.1em">
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+lenmiddle{#1}{#2}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+lenmiddle{3.2mm}|
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\lenmiddle{3mm}|$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row bottomspace="0.1em">
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+lenright{#1}{#2}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+lenright{3.2mm}]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\lenright{3mm}]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row bottomspace="0.1em">
+<cell multicolumn="1" alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+delimiter #2 of height exactly #1 obtained by scaling the above one
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row bottomspace="0.1em">
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+reallenleft{#1}{#2}
+\family default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+reallenleft{3.2mm}[
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\reallenleft{3mm}[$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row bottomspace="0.1em">
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+reallenmiddle{#1}{#2}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+reallenmiddle{3.2mm}|
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\reallenmiddle{3mm}|$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+reallenright{#1}{#2}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+
+\backslash
+reallenright{3.2mm}]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\reallenright{3mm}]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+  
+\end_layout
+
+\begin_layout Subsection
+Example with 
+\family typewriter
+
+\backslash
+nthleft
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\size footnotesize
+
+\backslash
+nrthleft0(
+\backslash
+nthleft1(
+\backslash
+nthleft2(
+\backslash
+nthleft3(
+\backslash
+nthleft4(
+\backslash
+nthleft5(
+\backslash
+nthleft6(
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nthleft0(\nthleft1(\nthleft2(\nthleft3(\nthleft4(\nthleft5(\nthleft6(
+\]
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+\nthleft0[\nthleft1[\nthleft2[\nthleft3[\nthleft4[\nthleft5[\nthleft6[\nthleft7[
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\nthright0[\nthright1[\nthright2[\nthright3[\nthright4[\nthright5[\nthright6[\nthright7[
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\nthleft0\langle\nthleft1\langle\nthleft2\langle\nthleft3\langle\nthleft4\langle\nthleft5\langle\nthleft6\langle\nthleft7\langle
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Example with 
+\family typewriter
+
+\backslash
+big
+\family default
+,
+\family typewriter
+
+\backslash
+Big
+\family default
+,
+\family typewriter
+
+\backslash
+bigg
+\family default
+,
+\family typewriter
+
+\backslash
+Bigg
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\size footnotesize
+(
+\backslash
+big(
+\backslash
+Big(
+\backslash
+bigg(
+\backslash
+Bigg(
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+(\big(\Big(\bigg(\Bigg(
+\]
+
+\end_inset
+
+The above uses the 
+\family typewriter
+
+\backslash
+big
+\family default
+ commands from the 
+\family typewriter
+amsmath
+\family default
+ package.
+ The 
+\family typewriter
+amsmath
+\family default
+ package corrects issues with the original TeX commands, but I could still
+ notice inconsistencies, such as 
+\family typewriter
+
+\backslash
+big
+\family default
+ starting at size 2, under some font combinations.
+ 
+\family typewriter
+
+\backslash
+nthleft
+\family default
+, 
+\family typewriter
+
+\backslash
+nthright
+\family default
+ and 
+\family typewriter
+
+\backslash
+nthmiddle
+\family default
+ are implemented in a more robust way.
+\end_layout
+
+\begin_layout Section
+License
+\end_layout
+
+\begin_layout Standard
+This work may be distributed and/or modified under the conditions of the
+ LaTeX Project Public License, either version 1.3 of this license or (at
+ your option) any later version.
+ Refer to the 
+\family typewriter
+README
+\family default
+ file.
+\end_layout
+
+\end_body
+\end_document
