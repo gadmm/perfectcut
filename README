@@ -45,7 +45,7 @@ Release notes:
 
 
 Author: Guillaume Munch-Maccagnoni
-http://www.pps.univ-paris-diderot.fr/~munch/
+https://github.com/gadmm/perfectcut
 
 
 This work may be distributed and/or modified under the conditions of
@@ -56,8 +56,8 @@ The latest version of this license is in:
 and version 1.3 or later is part of all distributions of LaTeX version
 2005/12/01 or later.
 
-The work consists in the files "perfectcut.sty", "perfectcut.tex" and
-the derived files.
+The work consists in the files "perfectcut.sty", "perfectcut.lyx",
+"perfectcut.tex", and the derived files.
 
 This work has the LPPL maintenance status `maintained'.
 The Current Maintainer of this work is Guillaume Munch-Maccagnoni.
