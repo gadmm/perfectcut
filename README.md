@@ -18,7 +18,7 @@ usage:
 \]
 ```
 
-![Screenshot.](perfectcut.svg)
+![Screenshot.](perfectcut.png)
 
 `perfectcut.sty` also offers a reimplementation of `\big`, `\bigg`,
 etc. into robust and arbitrarily-size variants.
