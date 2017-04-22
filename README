@@ -16,7 +16,13 @@ This package also offers a sound reimplementation of \big, \bigg, etc.
 
 Release notes:
 
-  2.1      : * the spacing inside cases can be contolled with \cutcasebarskip
+  2.2 04/17: * By default, use the scalerel package instead of the mathstyle
+               package to compute the nested mathstyle.
+             * The option nomathstyle and the command \cutstyle are
+               deprecated.
+             * The option mathstyle is introduced, to use when scalerel is
+               too slow.
+  2.1   ?  : * the spacing inside cases can be contolled with \cutcasebarskip
              * corrected a bug where vertical bars would shrink horizontally
              * corrected the spacing of middle delimiters
   2.0 11/14: * The package now offers general-purpose commands for

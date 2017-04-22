@@ -2,23 +2,23 @@
 %%%%%%%%%%%%%%%%%%%
 %%%
 %%% Author: Guillaume Munch-Maccagnoni
-%%% http://www.pps.univ-paris-diderot.fr/~munch/
-%%% 
+%%% http://guillaume.munch.name/
+%%%
 %%% This work may be distributed and/or modified under the conditions of
 %%% the LaTeX Project Public License, either version 1.3 of this license
 %%% or (at your option) any later version. Refer to the README file.
-%%% 
 %%%
-\ProvidesPackage{perfectcut}[04/12/2014 Perfect Cut v2.0b]
+%%%
+\ProvidesPackage{perfectcut}[04/22/2017 Perfect Cut v2.2]
 %%% Option processing
 \newif\ifcut@mathstyle@
-\cut@mathstyle@true
+\cut@mathstyle@false
 \newif\ifcut@realVert@
 \cut@realVert@false
 \newif\ifcut@fixxits@
 \cut@fixxits@false
-\DeclareOption{nomathstyle}{\cut@mathstyle@false}
-\let\cutstyle\textstyle
+\DeclareOption{nomathstyle}{\cut@mathstyle@false}%backwards compat
+\DeclareOption{mathstyle}{\cut@mathstyle@true}
 \DeclareOption{realVert}{\cut@realVert@true}
 \DeclareOption{fixxits}{\cut@fixxits@true}
 \ProcessOptions*
@@ -85,9 +85,12 @@
 %% setting up mathstyle
 \ifcut@mathstyle@
   \RequirePackage{mathstyle}
-  \def\currentcutstyle{\currentmathstyle}
+  \def\cut@currentcutstyle{\currentmathstyle}
+  \def\cut@setcurrentcutstyle{}
 \else
-  \def\currentcutstyle{\cutstyle}
+  \RequirePackage{scalerel}
+  \def\cut@setcurrentcutstyle{\ThisStyle}
+  \def\cut@currentcutstyle{\SavedStyle}
 \fi
 
 %% sets the behaviour of delimiters to always grow while evaluating #1
@@ -96,22 +99,22 @@
   \global\delimitershortfall=-0.1pt%that's the trick to get perfect growth
   \count0=\delimiterfactor%
   \global\delimiterfactor=901\relax%
-  \hbox{$\m@th\currentcutstyle#1$}%
+  \hbox{$\m@th\cut@currentcutstyle#1$}%
   \global\delimitershortfall=\skip0%
   \global\delimiterfactor=\count0%
 }
 
 %% scale #2 to size #1 (length)
 \newcommand{\cut@resizetoheight}[2]{%
-  \resizebox{!}{#1}{\hbox{$\m@th\currentcutstyle#2$}}%
+  \resizebox{!}{#1}{\hbox{$\m@th\cut@currentcutstyle#2$}}%
 }
 
 \newsavebox\cut@boxi
 \newsavebox\cut@boxj
 %% scale #2 to the size of #1. Assumes that #1 goes above and below the base line.
 \newcommand{\cut@resizetoheightof}[2]{%
-  \sbox{\cut@boxi}{$\m@th\currentcutstyle#1$}%
-  \sbox{\cut@boxj}{$\m@th\currentcutstyle#2$}%
+  \sbox{\cut@boxi}{$\m@th\cut@currentcutstyle#1$}%
+  \sbox{\cut@boxj}{$\m@th\cut@currentcutstyle#2$}%
   \raisebox{-\dp\cut@boxi}{%
     \resizebox{\width}{\ht\cut@boxi+\dp\cut@boxi}{%
       \raisebox{\dp\cut@boxj}{\usebox{\cut@boxj}}%
@@ -133,14 +136,14 @@
 \newcommand{\cut@matchingmdelim}[2]{\mathord{\cut@resizetoheightof{#1}{\cut@nextmdelim{#2}{#1}}}}
 
 %% gives the delimiter #2 which is immediately longer than #1 (length)
-\newcommand{\cut@lengthldelim}[2]{\mathopen{\cut@setshortfall{\cut@nextldelim#2{\rule[-0.101pt]{0pt}{#1}}}}}
-\newcommand{\cut@lengthrdelim}[2]{\mathclose{\cut@setshortfall{\cut@nextrdelim#2{\rule[-0.101pt]{0pt}{#1}}}}}
-\newcommand{\cut@lengthmdelim}[2]{\mathord{\cut@setshortfall{\cut@nextmdelim#2{\rule[-0.101pt]{0pt}{#1}}}}}
+\newcommand{\cut@lengthldelim}[2]{\mathopen{\cut@setcurrentcutstyle{\cut@setshortfall{\cut@nextldelim#2{\rule[-0.101pt]{0pt}{#1}}}}}}
+\newcommand{\cut@lengthrdelim}[2]{\mathclose{\cut@setcurrentcutstyle{\cut@setshortfall{\cut@nextrdelim#2{\rule[-0.101pt]{0pt}{#1}}}}}}
+\newcommand{\cut@lengthmdelim}[2]{\mathord{\cut@setcurrentcutstyle{\cut@setshortfall{\cut@nextmdelim#2{\rule[-0.101pt]{0pt}{#1}}}}}}
 
-%% like the previous one but resized to exactly match #1 (length) 
-\newcommand{\cut@reallengthldelim}[2]{\mathopen{\cut@resizetoheight{#1}{\cut@nextldelim#2{\rule[-0.101pt]{0pt}{#1}}}}}
-\newcommand{\cut@reallengthrdelim}[2]{\mathclose{\cut@resizetoheight{#1}{\cut@nextrdelim#2{\rule[-0.101pt]{0pt}{#1}}}}}
-\newcommand{\cut@reallengthmdelim}[2]{\mathord{\cut@resizetoheight{#1}{\cut@nextmdelim#2{\rule[-0.101pt]{0pt}{#1}}}}}
+%% like the previous one but resized to exactly match #1 (length)
+\newcommand{\cut@reallengthldelim}[2]{\mathopen{\cut@setcurrentcutstyle{\cut@resizetoheight{#1}{\cut@nextldelim#2{\rule[-0.101pt]{0pt}{#1}}}}}}
+\newcommand{\cut@reallengthrdelim}[2]{\mathclose{\cut@setcurrentcutstyle{\cut@resizetoheight{#1}{\cut@nextrdelim#2{\rule[-0.101pt]{0pt}{#1}}}}}}
+\newcommand{\cut@reallengthmdelim}[2]{\mathord{\cut@setcurrentcutstyle{\cut@resizetoheight{#1}{\cut@nextmdelim#2{\rule[-0.101pt]{0pt}{#1}}}}}}
 
 %I don't get anything about this bug which affects the
 %alignment with respect to the math axis
@@ -167,10 +170,10 @@
   \def\cut@tempnextdelim{#3{#2}}%
   \cut@setshortfall{\cut@iter{#1}\cut@tempnextdelim}%
 }
-%% \cut@nthxdelim gives the #1-th size of the delimiter #2  
-\newcommand{\cut@nthldelim}[2]{\mathopen{\cut@nthdelim{#1}{#2}{\cut@nextldelim}}}
-\newcommand{\cut@nthrdelim}[2]{\mathclose{\cut@nthdelim{#1}{#2}{\cut@nextrdelim}}}
-\newcommand{\cut@nthmdelim}[2]{\mathord{\cut@nthdelim{#1}{#2}{\cut@nextmdelim}}}
+%% \cut@nthxdelim gives the #1-th size of the delimiter #2
+\newcommand{\cut@nthldelim}[2]{\mathopen{\cut@setcurrentcutstyle{\cut@nthdelim{#1}{#2}{\cut@nextldelim}}}}
+\newcommand{\cut@nthrdelim}[2]{\mathclose{\cut@setcurrentcutstyle{\cut@nthdelim{#1}{#2}{\cut@nextrdelim}}}}
+\newcommand{\cut@nthmdelim}[2]{\mathord{\cut@setcurrentcutstyle{\cut@nthdelim{#1}{#2}{\cut@nextmdelim}}}}
 
 
 %%%% now the main algorithm
@@ -211,9 +214,9 @@
     %computing recursively
     \setcounter{\cut@localheight}{-1}%
     \expandafter\sbox\csname\cut@localsavebox{0}\endcsname%
-      {$\m@th\currentcutstyle#2$}%
+      {$\m@th\cut@currentcutstyle#2$}%
     \expandafter\sbox\csname\cut@localsavebox{1}\endcsname%
-      {$\m@th\currentcutstyle#3$}%
+      {$\m@th\cut@currentcutstyle#3$}%
     \addtocounter{\cut@localheight}{#1}%
     %exporting values outside the local scope
     \setcounter{cut@finalheight}{\value{\cut@localheight}}%
@@ -229,7 +232,7 @@
 %% Calls to cut primitives inside #2 and #4 will have a smaller height.
 %% Arguments #1, #3 and #5 can access the current height in two different
 %% forms via \cut@n and \count0.
-\newcommand{\cut@computeBinary@IncreaseHeight}[5]{%
+\newcommand{\cut@computeBinary@IncreaseHeight}[5]{\cut@setcurrentcutstyle{%
   \cut@computeBinary@main{1}{#2}{#4}%
   \@ifundefined{c@\cut@localheight}{}{% if #2 and #4 did not contain any cut primitive
     \ifnum\value{cut@finalheight}>\value{\cut@localheight}%
@@ -243,14 +246,14 @@
   #3%
   \usebox{\cut@boxright}%
   #5%
-}
+}}
 
 %% Displays #1#2#3#4#5. Arguments #2 and #4 can contain other cut primitives.
 %% Does not increase the current height computed by cut primitives inside #2
 %% and #4. 
 %% Arguments #1, #3 and #5 can access the current height in two different
 %% forms via \cut@n and \count0.
-\newcommand{\cut@computeBinary@CurrentHeight}[5]{%
+\newcommand{\cut@computeBinary@CurrentHeight}[5]{\cut@setcurrentcutstyle{%
   \cut@computeBinary@main{0}{#2}{#4}%
   \ifnum\value{cut@finalheight}<0%
     \setcounter{cut@finalheight}{0}%
@@ -267,14 +270,14 @@
   #3%
   \usebox{\cut@boxright}%
   #5%
-}
+}}
 
 %% Displays #1#2#3#4#5. Arguments #2 and #4 can contain other cut primitives.
 %% Does not increase the current height computed by cut primitives inside #2
 %% and #4 but the height to display is increased by 1. 
 %% Arguments #1, #3 and #5 can access the height height in two different
 %% forms via \cut@n and \count0.
-\newcommand{\cut@computeBinary@CurrentHeightPlusOne}[5]{%
+\newcommand{\cut@computeBinary@CurrentHeightPlusOne}[5]{\cut@setcurrentcutstyle{%
   \cut@computeBinary@main{0}{#2}{#4}
   \@ifundefined{c@\cut@localheight}{}{% if #2 and #4 did not contain any cut primitive
     \ifnum\value{cut@finalheight}>\value{\cut@localheight}%
@@ -289,7 +292,7 @@
   #3%
   \usebox{\cut@boxright}%
   #5%
-}
+}}
 
 %%% Implementation of the particular delimiters
 
