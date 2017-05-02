@@ -123,7 +123,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset href
 LatexCommand href
-target "http://guillaume.munch.name/"
+target "https://github.com/gadmm/perfectcut"
 
 \end_inset
 
@@ -736,7 +736,7 @@ right
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\fakecut}[2]{\left\langle #1\middle|\mkern-2mu \middle|#2\right\rangle }
+\newcommand{\fakecut}[2]{\left\langle #1\middle|\mkern-2mu  \middle|#2\right\rangle }
 {\left\langle #1||#2\right\rangle }
 \end_inset
 

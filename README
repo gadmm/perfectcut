@@ -22,7 +22,7 @@ Release notes:
                deprecated.
              * The option mathstyle is introduced, to use when scalerel is
                too slow.
-  2.1   ?  : * the spacing inside cases can be contolled with \cutcasebarskip
+  2.1 06/15: * the spacing inside cases can be contolled with \cutcasebarskip
              * corrected a bug where vertical bars would shrink horizontally
              * corrected the spacing of middle delimiters
   2.0 11/14: * The package now offers general-purpose commands for
