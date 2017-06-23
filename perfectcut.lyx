@@ -136,7 +136,7 @@ target "https://github.com/gadmm/perfectcut"
 \end_layout
 
 \begin_layout Date
-23rd April 2017
+3rd September 2017
 \end_layout
 
 \begin_layout Standard
@@ -1620,14 +1620,34 @@ scalerel
 \backslash
 mathchoice
 \family default
- which has exponential time complexity in the number of nestings.
- The former does not use 
+, and in order to avoid an exponential time complexity in the number of
+ nestings, it is only called for the outermost command.
+ Concretely, with 
+\family typewriter
+mathstyle
+\family default
+, math style changes are taken into account both inside and outside of 
 \family typewriter
 
 \backslash
-mathchoice
+perfectcommands
 \family default
- but redefines many primitives and is therefore a source of incompatibilities.
+, whereas without it, changes in math style are not obeyed inside a command.
+ Moreover, using the 
+\family typewriter
+mathstyle
+\family default
+ option speeds up compilation.
+ The downside of using 
+\family typewriter
+mathstyle
+\family default
+ is that it redefines many standard math commands, and is therefore a source
+ of incompatibilities, notably with 
+\family typewriter
+xypic
+\family default
+.
 \end_layout
 
 \begin_layout Subsection

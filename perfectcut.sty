@@ -32,7 +32,7 @@
 \newmuskip\cutcasebarskip
 \newif\ifcutdebug
 %%% Exported commands
-%%See end of file for a more detailed description of the commands 
+%%See end of file for a more detailed description of the commands
 \newcommand{\perfectcut}[2]{\cut@{#1}{#2}}%% displays <#1||#2>
 \newcommand{\perfectbra}[1]{\cut@bra{#1}}%% displays <#1|
 \newcommand{\perfectket}[1]{\cut@ket{#1}}%%  displays |#2>
@@ -89,7 +89,7 @@
   \def\cut@setcurrentcutstyle{}
 \else
   \RequirePackage{scalerel}
-  \def\cut@setcurrentcutstyle{\ThisStyle}
+  \def\cut@setcurrentcutstyle#1{{\ThisStyle{\let\ThisStyle\relax#1}}}
   \def\cut@currentcutstyle{\SavedStyle}
 \fi
 
@@ -250,7 +250,7 @@
 
 %% Displays #1#2#3#4#5. Arguments #2 and #4 can contain other cut primitives.
 %% Does not increase the current height computed by cut primitives inside #2
-%% and #4. 
+%% and #4.
 %% Arguments #1, #3 and #5 can access the current height in two different
 %% forms via \cut@n and \count0.
 \newcommand{\cut@computeBinary@CurrentHeight}[5]{\cut@setcurrentcutstyle{%
@@ -274,7 +274,7 @@
 
 %% Displays #1#2#3#4#5. Arguments #2 and #4 can contain other cut primitives.
 %% Does not increase the current height computed by cut primitives inside #2
-%% and #4 but the height to display is increased by 1. 
+%% and #4 but the height to display is increased by 1.
 %% Arguments #1, #3 and #5 can access the height height in two different
 %% forms via \cut@n and \count0.
 \newcommand{\cut@computeBinary@CurrentHeightPlusOne}[5]{\cut@setcurrentcutstyle{%

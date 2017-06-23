@@ -30,11 +30,12 @@
 
 \global\long\def\mt{\bar{\mu}}
 
+
 \title{\texttt{perfectcut.sty} documentation}
 
 \author{\noindent {\large{}Guillaume Munch-Maccagnoni}\thanks{\protect\href{https://github.com/gadmm/perfectcut}{https://github.com/gadmm/perfectcut}}}
 
-\date{23rd April 2017}
+\date{3rd September 2017}
 
 \maketitle
 
@@ -117,7 +118,7 @@ Using \texttt{\textbackslash underline} to mark redexes:
 \subsection{Using \texttt{\textbackslash left}, \texttt{\textbackslash middle}
 and \texttt{\textbackslash right} instead}
 
-\global\long\def\fakecut#1#2{\left\langle #1\middle|\mkern-2mu \middle|#2\right\rangle }
+\global\long\def\fakecut#1#2{\left\langle #1\middle|\mkern-2mu  \middle|#2\right\rangle }
 
 \noindent \texttt{\footnotesize{}\textbackslash renewcommand\{\textbackslash cut\}{[}2{]}\{\textbackslash left\textbackslash langle
 \#1\textbackslash middle|\textbackslash mkern-2mu\textbackslash middle|\#2\textbackslash right\textbackslash rangle\}}
@@ -168,15 +169,16 @@ The following displays a set $\{\#1\mid\#2\}$ with delimiters appropriately
 sized if there are other \texttt{\textbackslash perfectcommands}
 inside \texttt{\#1} and \texttt{\#2}.\medskip{}
 
-\texttt{\footnotesize{}\textbackslash def\textbackslash Set\#1\#2\{\textbackslash perfectbinary\{IncreaseHeight\}\textbackslash\{|\textbackslash\}\{\#1\textbackslash mathrel\{\}\}\{\textbackslash mathrel\{\}\#2\}\}}{\footnotesize \par}
+\texttt{\footnotesize{}\textbackslash def\textbackslash Set\#1\#2\{\textbackslash perfectbinary\{IncreaseHeight\}\textbackslash\{|\textbackslash\}\{\#1\textbackslash mathrel\{\}\}\{\textbackslash mathrel\{\}\#2\}\}}{\footnotesize\par}
 
-\texttt{\footnotesize{}\textbackslash{[}\textbackslash Set\{\textbackslash perfectparens\{a\}\}\{\textbackslash perfectparens\{b\}\}\textbackslash{]}}{\footnotesize \par}
+\texttt{\footnotesize{}\textbackslash{[}\textbackslash Set\{\textbackslash perfectparens\{a\}\}\{\textbackslash perfectparens\{b\}\}\textbackslash{]}}{\footnotesize\par}
 
 \def\Set#1#2{\perfectbinary{IncreaseHeight}\{|\}{#1\mathrel{}}{\mathrel{}#2}}
 
 \[
 \fbox{\ensuremath{\Set{\perfectparens{a}}{\perfectparens{b}}}}
 \]
+
 
 \subsection{Custom delimiters}
 \begin{description}
@@ -221,10 +223,16 @@ Command & Produces & Growth & Inserts skips\tabularnewline
 With this option, the command \texttt{\textbackslash currentmathstyle}
 from the package \texttt{mathstyle} is used instead of the command
 \texttt{\textbackslash ThisStyle} from the \texttt{scalerel} package.
-The latter (default) uses \texttt{\textbackslash mathchoice} which
-has exponential time complexity in the number of nestings. The former
-does not use \texttt{\textbackslash mathchoice} but redefines many
-primitives and is therefore a source of incompatibilities.
+The latter (default) uses \texttt{\textbackslash mathchoice}, and
+in order to avoid an exponential time complexity in the number of
+nestings, it is only called for the outermost command. Concretely,
+with \texttt{mathstyle}, math style changes are taken into account
+both inside and outside of \texttt{\textbackslash perfectcommands},
+whereas without it, changes in math style are not obeyed inside a
+command. Moreover, using the \texttt{mathstyle} option speeds up compilation.
+The downside of using \texttt{mathstyle} is that it redefines many
+standard math commands, and is therefore a source of incompatibilities,
+notably with \texttt{xypic}.
 
 \subsection{Option \texttt{realVert}}
 
@@ -294,15 +302,16 @@ above one}}\tabularnewline\addlinespace[0.1em]
 
 \subsection{Example with \texttt{\textbackslash nthleft}}
 
-\texttt{\footnotesize{}\textbackslash nrthleft0(\textbackslash nthleft1(\textbackslash nthleft2(\textbackslash nthleft3(\textbackslash nthleft4(\textbackslash nthleft5(\textbackslash nthleft6(}{\footnotesize \par}
+\texttt{\footnotesize{}\textbackslash nrthleft0(\textbackslash nthleft1(\textbackslash nthleft2(\textbackslash nthleft3(\textbackslash nthleft4(\textbackslash nthleft5(\textbackslash nthleft6(}{\footnotesize\par}
 
 \[
 \nthleft0(\nthleft1(\nthleft2(\nthleft3(\nthleft4(\nthleft5(\nthleft6(
 \]
 
+
 \subsection{Example with \texttt{\textbackslash big},\texttt{\textbackslash Big},\texttt{\textbackslash bigg},\texttt{\textbackslash Bigg}}
 
-\texttt{\footnotesize{}(\textbackslash big(\textbackslash Big(\textbackslash bigg(\textbackslash Bigg(}{\footnotesize \par}
+\texttt{\footnotesize{}(\textbackslash big(\textbackslash Big(\textbackslash bigg(\textbackslash Bigg(}{\footnotesize\par}
 
 \[
 (\big(\Big(\bigg(\Bigg(

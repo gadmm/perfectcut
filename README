@@ -16,6 +16,8 @@ This package also offers a sound reimplementation of \big, \bigg, etc.
 
 Release notes:
 
+  2.3 07/17: * When using scalerel, only use \ThisStyle for the outermost
+               command due to performance issues.
   2.2 04/17: * By default, use the scalerel package instead of the mathstyle
                package to compute the nested mathstyle.
              * The option nomathstyle and the command \cutstyle are
@@ -28,10 +30,10 @@ Release notes:
   2.0 11/14: * The package now offers general-purpose commands for
                defining arbitrary nested delimiters that consistently
                grow regardless of the contents (\perfectunary and
-               \perfectbinary)   
+               \perfectbinary)
              * Added the behaviours CurrentHeight and
                CurrentHeightPlusOne alongside the existing behaviour
-               IncreaseHeight. 
+               IncreaseHeight.
              * Added the stock commands \perfectcase, \perfectparens,
                and \perfectbrackets intended for use in the context
                of abstract-machine-like calculi.
